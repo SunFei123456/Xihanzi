@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Design - Xihanzi Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* ================= Variables & Global Settings ================= */
+        :root {
+            --dark-green: #154832;
+            --mid-green: #5fa373;
+            --light-green: #9bcfb0;
+            --light-pink: #f6d2d0;
+            --dark-pink: #df8a88;
+            --bg-color: #ffffff;
+            --text-dark: #154832;
+            --text-gray: #7a8b83;
+            --card-bg: #eef2f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= Header ================= */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark-green);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--dark-green);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--mid-green);
+        }
+
+        /* ================= Hero Section ================= */
+        .project-hero {
+            background: linear-gradient(180deg, var(--dark-green) 0%, #1a5c3f 100%);
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .project-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+            position: relative;
+        }
+
+        .project-hero .subtitle {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+
+        .decorative-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
+        .project-hero .tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .project-hero .tag {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .project-hero .tag:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ================= Cover Image ================= */
+        .cover-image {
+            width: 100%;
+            max-width: 850px;
+            margin: -50px auto 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cover-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 20px;
+            background: linear-gradient(90deg, transparent, var(--light-pink), transparent);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .cover-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .cover-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* ================= Content Sections ================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--dark-green);
+            margin-bottom: 35px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--dark-green), var(--light-pink));
+        }
+
+        .section-title.centered::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-content {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+            line-height: 2;
+        }
+
+        .section-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .section-content p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            float: left;
+            line-height: 1;
+            padding-right: 12px;
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+
+        /* ================= Design Gallery ================= */
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .design-item:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .design-item:first-child img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .design-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .design-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .design-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .design-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .design-caption {
+            padding: 25px;
+            text-align: center;
+            background: white;
+            border-top: 1px solid rgb(229, 233, 237);
+        }
+
+        .design-caption h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .design-caption p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* ================= Quote Section ================= */
+        .quote-section {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--light-pink) 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 12rem;
+            color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            top: -40px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .quote-section blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--dark-green);
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ================= Footer ================= */
+        footer {
+            background: linear-gradient(180deg, var(--dark-green) 0%, #0f2f22 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--light-pink), var(--light-green), transparent);
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* ================= Responsive ================= */
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .project-hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .design-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .quote-section {
+                padding: 40px 25px;
+            }
+
+            .quote-section blockquote {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Xihanzi
+        </a>
+        <a href="index.html#project" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Projects
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero" data-aos="fade-down">
+        <h1>Product Design</h1>
+        <div class="decorative-line"></div>
+        <p class="subtitle">Visual Identity & Packaging Solutions</p>
+        <div class="tags">
+            <span class="tag">Adobe Illustrator</span>
+            <span class="tag">Packaging</span>
+            <span class="tag">Branding</span>
+            <span class="tag">Visual Design</span>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Project Overview -->
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="section-content">
+                <p>This collection showcases product design work focusing on visual identity, packaging solutions, and
+                    brand development. Each project represents a thoughtful approach to combining aesthetics with
+                    functionality, creating designs that communicate brand values while appealing to target audiences.
+                </p>
+                <p>The design process involves careful consideration of materials, printing techniques, and user
+                    experience. From initial concept sketches to final production files, each piece reflects attention
+                    to detail and a commitment to quality craftsmanship.</p>
+            </div>
+
+            <div class="quote-section">
+                <blockquote>
+                    "Good design is not just about aesthetics—it's about creating meaningful connections between
+                    products and people."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Design Gallery -->
+        <section class="section" style="text-align: center;" data-aos="fade-up">
+            <h2 class="section-title centered">Design Works</h2>
+            <div class="design-grid">
+                <div class="design-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="part4.png" alt="Product Design Cover">
+                    <div class="design-caption">
+                        <h4>Design Collection</h4>
+                        <p>Complete product design showcase</p>
+                    </div>
+                </div>
+                <div class="design-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="part4-1.png" alt="Product Design 1">
+                    <div class="design-caption">
+                        <h4>Packaging Design I</h4>
+                        <p>Premium gift box with elegant finish</p>
+                    </div>
+                </div>
+                <div class="design-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="part4-2.png" alt="Product Design 2">
+                    <div class="design-caption">
+                        <h4>Illustration Series I</h4>
+                        <p>Character design and visual storytelling</p>
+                    </div>
+                </div>
+                <div class="design-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="part4-3.png" alt="Product Design 3">
+                    <div class="design-caption">
+                        <h4>Illustration Series II</h4>
+                        <p>Expressive portrait artwork</p>
+                    </div>
+                </div>
+                <div class="design-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="part4-4.png" alt="Product Design 4">
+                    <div class="design-caption">
+                        <h4>Illustration Series III</h4>
+                        <p>Stylized character illustration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Xihanzi. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>
