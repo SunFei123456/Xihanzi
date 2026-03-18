@@ -12,15 +12,15 @@
     <style>
         /* ================= Variables & Global Settings ================= */
         :root {
-            --dark-green: #154832;
-            --mid-green: #5fa373;
-            --light-green: #9bcfb0;
+            --dark-green: #a2a08b;
+            --mid-green: #ad9b8b;
+            --light-green: #f9e2cb;
             --light-pink: #f6d2d0;
-            --dark-pink: #df8a88;
+            --dark-pink: #b1805d;
             --bg-color: #ffffff;
-            --text-dark: #154832;
+            --text-dark: #a2a08b;
             --text-gray: #7a8b83;
-            --card-bg: #eef2f0;
+            --card-bg: #e0e1db;
         }
 
         * {
@@ -86,7 +86,7 @@
 
         /* ================= Hero Section ================= */
         .project-hero {
-            background: linear-gradient(180deg, var(--dark-green) 0%, #1a5c3f 100%);
+            background: var(--dark-green);
             color: white;
             padding: 100px 20px 80px;
             text-align: center;
@@ -287,12 +287,12 @@
             height: auto;
             display: block;
             border-radius: 20px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .artwork-item:hover img {
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.03);
             transform: translateY(-5px);
         }
 
@@ -351,7 +351,7 @@
 
         /* ================= Footer ================= */
         footer {
-            background: linear-gradient(180deg, var(--dark-green) 0%, #0f2f22 100%);
+            background: var(--dark-green);
             color: white;
             text-align: center;
             padding: 50px 20px;
@@ -359,15 +359,7 @@
             position: relative;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--light-pink), var(--light-green), transparent);
-        }
+
 
         footer p {
             opacity: 0.7;
